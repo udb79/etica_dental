@@ -18,6 +18,7 @@
     --size1: 0.8rem;
     --size2: 1.2rem;
     --size3: 1.5rem;
+    --logo: 1.8rem; /* logo proincipal modo texto*/
     --size4: 2.0rem;
 
     /* pesos de fuente */
@@ -28,14 +29,15 @@
     --w5: 800;
 
     /* colores */
-    --color1: #F5F5F5; /* fondo principal */
+    --color1: rgb(245,245,245); /* fondo principal */
     --color2: rgb(0,178,169); /* Quirón 1 */
+    --mobile-navbar: rgba(0,178,169,0.88); /* Quirón 1 */
     --color3: rgb(225,62,82); /* Quirón 2 */
     --color4: #F5F5F5;
     --color5: #FFFFFF;
     --color6: #FF8A65;
     --color7: rgb(75,79,84); /* Quirón 3: textos */
-    --color8: #333333;
+    --color8: black;
 
 }
 
@@ -45,6 +47,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  .navbar {
+    opacity: 0;
+  }
 }
 
 body {
@@ -81,6 +86,8 @@ body {
     padding: var(--size3) var(--size4);
     color: var(--color7);
     z-index: 10;
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 
 /* Logo */
@@ -103,7 +110,7 @@ body {
 
 .logo-txt a {
   color: var(--color7);
-  font-size: var(--size3);
+  font-size: var(--logo);
   text-decoration: none;
   font-weight: bold;
   font-family: var(--font2), sans-serif;
@@ -111,18 +118,20 @@ body {
   padding: 0;
   line-height: 1;
   display: block;
+  transform: translateY(0px);
 }
 
 .logo-txt span {
   color: var(--color7);
   font-family: var(--font3), sans-serif;
   text-transform: uppercase;
-  font-size: calc(var(--size3) * 0.345);
+  font-size: calc(var(--logo) * 0.345);
   font-weight: 300;
   margin: 0;
   padding: 0;
   line-height: 1;
   display: block;
+  transform: translateY(-3px);
 }
 
 .nav-logo .logo-txt-min {
@@ -225,11 +234,33 @@ body {
   font-weight: var(--w2) !important;
   color: var(--color7);
   text-decoration: none;
+  transform: translateY(0px);
+  transition: transform 0.4s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;          /* ajusta la distancia al texto */
+    width: 0;
+    height: 1px;
+    background-color: var(--color3);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 2rem;
 }
 
 .nav-links a:hover, .nav-social a:hover, .nav-extra a:hover {
-    color: var(--color1);
+    color: var(--color2);
     font-weight: var(--w5);
+}
+
+.nav-links a:hover, .nav-social a:hover {
+    transform: translateY(-4px);
+    transition: transform 0.4s ease;
 }
 
 /* Desktop */
@@ -291,9 +322,9 @@ body {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 60%;
+        width: 50%;
         height: 100vh;
-        background: var(--color2);
+        background: var(--mobile-navbar);
         padding: 100px var(--size3);
         display: flex;
         flex-direction: column;
@@ -302,12 +333,12 @@ body {
     }
 
     .logo-txt a {
-        font-size: calc( var(--size3) * 1.5);
+        font-size: calc( var(--logo) * 1.2);
         transition: font-size 0.4s ease;
     }
 
     .logo-txt span {
-        font-size: calc( calc(var(--size3) * 0.345) * 1.5);
+        font-size: calc( calc(var(--logo) * 0.345) * 1.2);
         transition: font-size 0.4s ease;
     }
     
@@ -341,9 +372,13 @@ body {
     }
 
     .nav-links a, .nav-social a {
-        color: var(--color4);
+        color: var(--color8);
         opacity: 0;
         transform: translateX(20px);
+    }
+
+    .nav-links a:hover, .nav-social a:hover {
+        color: var(--color1);
     }
 
     #menu-toggle:checked ~ .nav-menu .nav-links a,
