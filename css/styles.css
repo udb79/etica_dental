@@ -131,7 +131,7 @@ body {
   padding: 0;
   line-height: 1;
   display: block;
-  transform: translateY(-3px);
+  transform: translateY(0px);
 }
 
 .nav-logo .logo-txt-min {
