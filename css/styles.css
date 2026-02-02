@@ -393,7 +393,7 @@ body {
 
 }
 
-@media (max-width: 512px) {
+/* @media (max-width: 512px) {
 
     .hero {
         position: absolute;
@@ -407,16 +407,16 @@ body {
     }
 
     .nav-logo {
-        flex-direction: row; /* cambiar a fila en mobile muy pequeño */
-        justify-content: flex-start; /* alinear al inicio en mobile muy pequeño */
+        flex-direction: row;
+        justify-content: flex-start;
     }
 
     .nav-logo .logo-txt {
-        display: none; /* ocultar la imagen por defecto */
+        display: none;
     }
 
     .nav-logo .logo-txt-min {
-        display: block; /* ocultar la imagen por defecto */
+        display: block;
     }
 
     .logo-txt-min a {
@@ -424,10 +424,10 @@ body {
     }
 
     .menu-icon span {
-    background: var(--color1);
-}
+        background: var(--color1);
+    }
 
-}
+} */
 
 /* Animación */
 
