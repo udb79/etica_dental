@@ -2,8 +2,8 @@
 @font-face {
   font-family: "Alta";
   src:
-    url("../assets/fonts/alta-regular.woff2") format("woff2"),
-    url("../assets/fonts/alta-regular.woff") format("woff");
+    url(../assets/fonts/alta-regular.woff2) format("woff2"),
+    url(../assets/fonts/alta-regular.woff) format("woff");
   font-weight: 400;
   font-style: normal;
 }
