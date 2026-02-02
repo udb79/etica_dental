@@ -280,14 +280,8 @@ body {
 @media (max-width: 768px) {
 
     .hero {
-        position: absolute;
-        width: 100vw;
-        height: auto;
-        background-image: url("../assets/images/header.jpg");
-        background-size: cover;
-        background-position: top center;
-        background-repeat: no-repeat;
         aspect-ratio: 9 / 16;
+        height: auto;
     }
     
     .menu-icon {
