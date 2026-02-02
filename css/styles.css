@@ -29,12 +29,12 @@
 
     /* colores */
     --color1: #F5F5F5; /* fondo principal */
-    --color2: #4DD0E1;
-    --color3: #81C784;
+    --color2: rgb(0,178,169); /* Quirón 1 */
+    --color3: rgb(225,62,82); /* Quirón 2 */
     --color4: #F5F5F5;
     --color5: #FFFFFF;
     --color6: #FF8A65;
-    --color7: #333333; /* texto */
+    --color7: rgb(75,79,84); /* Quirón 3: textos */
     --color8: #333333;
 
 }
@@ -293,12 +293,22 @@ body {
         right: -100%;
         width: 60%;
         height: 100vh;
-        background: var(--color7);
+        background: var(--color2);
         padding: 100px var(--size3);
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         transition: right 0.4s ease;
+    }
+
+    .logo-txt a {
+        font-size: calc( var(--size3) * 1.5);
+        transition: font-size 0.4s ease;
+    }
+
+    .logo-txt span {
+        font-size: calc( calc(var(--size3) * 0.345) * 1.5);
+        transition: font-size 0.4s ease;
     }
     
     /* Mostrar menú */
