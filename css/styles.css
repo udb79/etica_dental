@@ -375,7 +375,7 @@ body {
 
 }
 
-@media (max-width: 384px) {
+@media (max-width: 256px) {
 
     .nav-logo {
         flex-direction: row; /* cambiar a fila en mobile muy pequeño */
