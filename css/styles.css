@@ -282,6 +282,17 @@ body {
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
+
+    .hero {
+        position: absolute;
+        width: 100vw;
+        height: auto;
+        background-image: url("../assets/images/header.jpg");
+        background-size: contain;
+        background-position: top center;
+        background-repeat: no-repeat;
+        aspect-ratio: 9 / 16;
+    }
     
     .menu-icon {
         display: flex;
@@ -377,6 +388,17 @@ body {
 }
 
 @media (max-width: 256px) {
+
+        .hero {
+        position: absolute;
+        width: 100vw;
+        height: auto;
+        background-image: url("../assets/images/header-min.jpg");
+        background-size: contain;
+        background-position: top center;
+        background-repeat: no-repeat;
+        aspect-ratio: 9 / 16;
+    }
 
     .nav-logo {
         flex-direction: row; /* cambiar a fila en mobile muy pequeño */
