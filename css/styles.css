@@ -289,14 +289,6 @@ body {
         background-repeat: no-repeat;
         aspect-ratio: 9 / 16;
     }
-
-    .logo-txt a, .logo-txt span {
-        color: var(--color1);
-    }
-
-    .menu-icon span {
-        background: var(--color1);
-    }
     
     .menu-icon {
         display: flex;
