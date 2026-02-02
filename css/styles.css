@@ -251,6 +251,7 @@ body {
 
 .nav-links a:hover::after {
     width: 2rem;
+    opacity: 0.5;
 }
 
 .nav-links a:hover, .nav-social a:hover, .nav-extra a:hover {
@@ -426,18 +427,7 @@ body {
 
 }
 
-/* @media (max-width: 512px) {
-
-    .hero {
-        position: absolute;
-        width: 100vw;
-        height: auto;
-        background-image: url("../assets/images/header-min.jpg");
-        background-size: contain;
-        background-position: top center;
-        background-repeat: no-repeat;
-        aspect-ratio: 9 / 16;
-    }
+@media (max-width: 384px) {
 
     .nav-logo {
         flex-direction: row;
@@ -453,14 +443,12 @@ body {
     }
 
     .logo-txt-min a {
-        color: var(--color1);
+        font-size: calc( var(--logo) * 1.8);
+        transform: translateY(2px);
+        transition: font-size 0.8s ease;
     }
 
-    .menu-icon span {
-        background: var(--color1);
-    }
-
-} */
+}
 
 /* Animación */
 
