@@ -31,7 +31,7 @@
     /* colores */
     --color1: rgb(245,245,245); /* fondo principal */
     --color2: rgb(0,178,169); /* Quirón 1 */
-    --mobile-navbar: rgba(0,178,169,0.88); /* Quirón 1 */
+    --mobile-navbar: rgba(225,62,82,0.88); /* Quirón 1 */
     --color3: rgb(225,62,82); /* Quirón 2 */
     --color4: #F5F5F5;
     --color5: #FFFFFF;
@@ -245,7 +245,7 @@ body {
     bottom: -2px;          /* ajusta la distancia al texto */
     width: 0;
     height: 1px;
-    background-color: var(--color3);
+    background-color: var(--color7);
     transition: width 0.3s ease;
 }
 
@@ -254,7 +254,7 @@ body {
 }
 
 .nav-links a:hover, .nav-social a:hover, .nav-extra a:hover {
-    color: var(--color2);
+    color: var(--color7);
     font-weight: var(--w5);
 }
 
@@ -372,14 +372,19 @@ body {
     }
 
     .nav-links a, .nav-social a {
-        color: var(--color8);
+        color: var(--color1);
         opacity: 0;
         transform: translateX(20px);
     }
 
-    .nav-links a:hover, .nav-social a:hover {
-        color: var(--color1);
+    .nav-links a::after {
+        background-color: var(--color8);
     }
+
+    .nav-links a:hover, .nav-social a:hover {
+        color: var(--color8);
+    }
+
 
     #menu-toggle:checked ~ .nav-menu .nav-links a,
     #menu-toggle:checked ~ .nav-menu .nav-social a {
