@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+  font-family: "Alta";
+  src: url("/assets/fonts/alta-regular.otf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+
+    /* fuentes */
+    --font1: Montserrat;
+    --font2: Alta;
+    --font3: Assistant;
+
+    /* tamaños de fuente */
+    --size1: 0.8rem;
+    --size2: 1.2rem;
+    --size3: 1.5rem;
+    --size4: 2.0rem;
+
+    /* pesos de fuente */
+    --w1: 200;
+    --w2: 300; /* navbar */
+    --w3: 400; /* estándar */
+    --w4: 600;
+    --w5: 800;
+
+    /* colores */
+    --color1: #F5F5F5; /* fondo principal */
+    --color2: #4DD0E1;
+    --color3: #81C784;
+    --color4: #F5F5F5;
+    --color5: #FFFFFF;
+    --color6: #FF8A65;
+    --color7: #333333; /* texto */
+    --color8: #333333;
+
+}
+
+/* Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font3), sans-serif;
+  background-color: var(--color1);
+}
+
+.hero {
+    position: relative;
+    height: 70vh;
+    background-image: url('/assets/images/_DSC9816.jpg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Navbar */
+
+.navbar {
+    position: absolute;      /* clave */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: var(--size3) var(--size4);
+    color: var(--color7);
+    z-index: 10;
+}
+
+/* Logo */
+
+.nav-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* CENTRA verticalmente */
+    height: 100%;
+    line-height: 0;
+}
+
+.nav-logo img {
+    display: none; /* ocultar la imagen por defecto */
+    height: var(--size4);
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-txt {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.logo-txt a {
+  color: var(--color7);
+  font-size: var(--size3);
+  text-decoration: none;
+  font-weight: bold;
+  font-family: var(--font2), sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: block;
+  
+}
+
+.logo-txt span {
+  color: var(--color7);
+  font-family: var(--font3), sans-serif;
+  text-transform: uppercase;
+  font-size: calc(var(--size3) * 0.345);
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  display: block;
+}
+
+/* Toggle */
+
+#menu-toggle {
+  display: none;
+}
+
+/* Hamburguesa */
+
+.menu-icon {
+    display: none;              /* visible solo en mobile */
+    width: var(--size4);
+    height: var(--size3);
+    cursor: pointer;
+    z-index: 1001;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;         /* ya no absolute */
+}
+
+.menu-icon span {
+    background: var(--color7);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    color: var(--color4);
+    border-radius: 2px;
+    transition: transform 0.4s ease, opacity 0.3s ease, background 0.3s ease;
+}
+
+#menu-toggle:checked + .menu-icon span {
+  background: var(--color4);    /* color de la X */
+}
+
+.menu-icon span:nth-child(1) {
+  top: 0;
+}
+
+.menu-icon span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menu-icon span:nth-child(3) {
+  bottom: 0;
+}
+
+/* Transformación a X */
+
+#menu-toggle:checked + .menu-icon span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked + .menu-icon span:nth-child(3) {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+/* ===== ENLACES (DESKTOP + MOBILE) ===== */
+
+.nav-links a, .nav-social a {
+  font-family: var(--font3);
+  font-size: var(--size2);
+  font-weight: var(--w2) !important;
+  color: var(--color7);
+  text-decoration: none;
+}
+
+.nav-links a:hover, .nav-social a:hover, .nav-extra a:hover {
+    color: var(--color6);
+    font-weight: var(--w5);
+}
+
+/* Desktop */
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: var(--size4);
+}
+
+.nav-logo, .nav-links, .nav-social {
+    flex: 1;
+    display: flex;
+    gap: var(--size4);
+}
+
+.nav-extra {
+    display: flex;
+    gap: var(--size4);
+    display: none;              /* oculto en el menú principal */
+}
+
+.nav-extra ul {
+    list-style: none;           /* sin viñetas */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;     /* igual que los enlaces del menú en mobile */
+    gap: var(--size4);          /* mismo espacio que los enlaces */
+}
+
+.nav-extra li a {
+    font-family: var(--font3);
+    font-size: var(--size2);
+    font-weight: var(--w2) !important;
+    color: var(--color4);       /* igual que los enlaces en mobile */
+    text-decoration: none;
+}
+
+/* Botón cerrar oculto por defecto */
+
+.close-btn {
+  display: none;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    
+    .menu-icon {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100vh;
+        background: var(--color7);
+        padding: 100px var(--size3);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        transition: right 0.4s ease;
+    }
+    
+    /* Mostrar menú */
+
+    #menu-toggle:checked ~ .nav-menu {
+        right: 0;
+    }
+    
+    #menu-toggle:checked ~ .nav-menu .nav-extra {
+        display: block;
+        margin-top: var(--size4);       /* separación de las RRSS */
+    }
+
+    /* Botón cerrar visible SOLO en mobile */
+
+    .close-btn {
+        display: block;
+        align-self: flex-end;
+        font-size: 1.8rem;
+        cursor: pointer;
+        margin-bottom: 2rem;
+    }
+
+    /* Enlaces alineados arriba izquierda */
+
+    .nav-links {
+        flex-direction: column;
+        gap: var(--size2);
+        margin-bottom: var(--size4);
+    }
+
+    .nav-links a, .nav-social a {
+        color: var(--color4);
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    #menu-toggle:checked ~ .nav-menu .nav-links a,
+    #menu-toggle:checked ~ .nav-menu .nav-social a {
+        animation: cascade 0.4s forwards;
+    }
+
+    .nav-extra ul {
+        gap: var(--size4);      /* mismo espacio que los enlaces */
+    }
+
+    .nav-extra li {
+        color: var(--color4);
+        opacity: 0;
+        transform: translateX(20px);
+        animation: cascadeExtra 0.4s forwards;
+    }
+
+    /* Cascada */
+    
+    #menu-toggle:checked ~ .nav-menu .nav-links a:nth-child(1) { animation-delay: 0.1s; }
+    #menu-toggle:checked ~ .nav-menu .nav-links a:nth-child(2) { animation-delay: 0.2s; }
+    #menu-toggle:checked ~ .nav-menu .nav-links a:nth-child(3) { animation-delay: 0.3s; }
+    #menu-toggle:checked ~ .nav-menu .nav-links a:nth-child(4) { animation-delay: 0.4s; }
+    #menu-toggle:checked ~ .nav-menu .nav-social a { animation-delay: 0.5s; }
+    #menu-toggle:checked ~ .nav-menu .nav-extra li {
+        opacity: 0;
+        transform: translateX(20px);
+        animation: cascadeExtra 0.4s forwards;
+    }
+
+    #menu-toggle:checked ~ .nav-menu .nav-extra li:nth-child(1) { animation-delay: 0.6s; }
+    #menu-toggle:checked ~ .nav-menu .nav-extra li:nth-child(2) { animation-delay: 0.7s; }
+    #menu-toggle:checked ~ .nav-menu .nav-extra li:nth-child(3) { animation-delay: 0.8s; }
+
+    .nav-social {
+        display: flex;
+        gap: var(--size4);
+    }
+
+}
+
+@media (max-width: 256px) {
+
+    .nav-logo {
+        flex-direction: row; /* cambiar a fila en mobile muy pequeño */
+        justify-content: flex-start; /* alinear al inicio en mobile muy pequeño */
+    }
+
+    .nav-logo img {
+        display: block; /* mostrar la imagen en mobile */
+    }
+    .nav-logo .logo-txt {
+        display: none; /* ocultar el texto en mobile */
+    }
+
+}
+
+/* Animación */
+
+@keyframes cascade {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cascadeExtra {
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
