@@ -76,14 +76,15 @@ body {
 /* Navbar */
 
 .navbar {
-    position: absolute;      /* clave */
+    position: relative;      /* clave */
     top: 0;
     left: 0;
-    width: 100%;
+    width: 80vw;
+    margin: 0 auto;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: var(--size3) var(--size4);
+    padding: var(--size3) 0;
     color: var(--color7);
     z-index: 10;
     opacity: 1;
@@ -254,16 +255,12 @@ body {
     opacity: 0.5;
 }
 
-.nav-links a:hover, .nav-social a:hover, .nav-extra a:hover {
+.nav-links a:hover, .nav-social a:hover {
     color: var(--color7);
     font-weight: var(--w5);
-}
-
-.nav-links a:hover, .nav-social a:hover {
     transform: translateY(-4px);
     transition: transform 0.4s ease;
 }
-
 /* Desktop */
 
 .nav-menu {
@@ -272,7 +269,7 @@ body {
     gap: var(--size4);
 }
 
-.nav-logo, .nav-links, .nav-social {
+.nav-logo, .nav-links, .nav-social, .nav-extra {
     flex: 1;
     display: flex;
     gap: var(--size4);
@@ -280,25 +277,22 @@ body {
 
 .nav-extra {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: var(--size4);
     display: none;              /* oculto en el menú principal */
 }
 
-.nav-extra ul {
-    list-style: none;           /* sin viñetas */
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;     /* igual que los enlaces del menú en mobile */
-    gap: var(--size4);          /* mismo espacio que los enlaces */
-}
 
-.nav-extra li a {
-    font-family: var(--font3);
-    font-size: var(--size2);
-    font-weight: var(--w2) !important;
-    color: var(--color4);       /* igual que los enlaces en mobile */
+
+.nav-extra .nav-info span,
+.nav-extra .nav-social a {
+    font-family: var(--font2);
+    font-size: var(--size3);
+    font-weight: var(--w4);
+    color: var(--color1);
     text-decoration: none;
+    line-height: 2rem;
 }
 
 /* Botón cerrar oculto por defecto */
@@ -313,6 +307,11 @@ body {
     .hero {
         aspect-ratio: 9 / 16;
         height: auto;
+    }
+
+    .navbar {
+        padding: var(--size2) 0;
+        transition: padding 0.5s ease;
     }
     
     .menu-icon {
@@ -403,31 +402,51 @@ body {
         animation: cascadeExtra 0.4s forwards;
     }
 
+    .nav-social {
+        display: flex;
+        gap: var(--size4);
+        margin-bottom: var(--size4);
+    }
+
+    .nav-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     /* Cascada */
     
     #menu-toggle:checked ~ .nav-menu .nav-links a:nth-child(1) { animation-delay: 0.1s; }
     #menu-toggle:checked ~ .nav-menu .nav-links a:nth-child(2) { animation-delay: 0.2s; }
     #menu-toggle:checked ~ .nav-menu .nav-links a:nth-child(3) { animation-delay: 0.3s; }
     #menu-toggle:checked ~ .nav-menu .nav-links a:nth-child(4) { animation-delay: 0.4s; }
-    #menu-toggle:checked ~ .nav-menu .nav-social a { animation-delay: 0.5s; }
-    #menu-toggle:checked ~ .nav-menu .nav-extra li {
+    #menu-toggle:checked ~ .nav-menu .nav-extra .nav-social a:nth-child(1) { animation-delay: 0.5s; }
+    #menu-toggle:checked ~ .nav-menu .nav-extra .nav-social a:nth-child(2) { animation-delay: 0.6s; }
+    
+    
+    #menu-toggle:checked ~ .nav-menu .nav-extra .nav-info span {
         opacity: 0;
         transform: translateX(20px);
         animation: cascadeExtra 0.4s forwards;
     }
 
-    #menu-toggle:checked ~ .nav-menu .nav-extra li:nth-child(1) { animation-delay: 0.6s; }
-    #menu-toggle:checked ~ .nav-menu .nav-extra li:nth-child(2) { animation-delay: 0.7s; }
-    #menu-toggle:checked ~ .nav-menu .nav-extra li:nth-child(3) { animation-delay: 0.8s; }
-
-    .nav-social {
-        display: flex;
-        gap: var(--size4);
-    }
+    #menu-toggle:checked ~ .nav-menu .nav-extra .nav-info span:nth-child(1) { animation-delay: 0.7s; }
+    #menu-toggle:checked ~ .nav-menu .nav-extra .nav-info span:nth-child(2) { animation-delay: 0.8s; }
 
 }
 
 @media (max-width: 384px) {
+
+    .navbar {
+        width: 90vw;
+        padding: calc(var(--size1) * 0.5) 0;
+        transition: width 0.4 ease, padding 0.4s ease;
+    }
+
+    .nav-menu {
+        width: 100%;
+        align-items: center;
+    }
 
     .nav-logo {
         flex-direction: row;
@@ -443,9 +462,22 @@ body {
     }
 
     .logo-txt-min a {
-        font-size: calc( var(--logo) * 1.8);
+        font-size: calc( var(--logo) * 1.6);
         transform: translateY(2px);
         transition: font-size 0.8s ease;
+    }
+
+    .nav-links a::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .nav-links a, .nav-social a {
+        text-align: center;
+    }
+
+    .nav-info {
+        align-items: center;
     }
 
 }
