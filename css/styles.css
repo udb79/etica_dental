@@ -332,21 +332,8 @@ main h2 {
 
 /* ===== QUERIES Inicio ===== */
 
-@media (max-width: 1024px) {
-
-    .hero {
-        height: clamp( 500px, 75vh, 750px );
-        transition: height 0.4s ease;
-    }
-
-}
 
 @media (max-width: 768px) {
-
-    .hero {
-        height: clamp( 300px, 40vh, 400px );
-        transition: height 0.4s ease;
-    }
 
     .navbar {
         padding: 20px 0;
@@ -493,7 +480,7 @@ main h2 {
 @media (max-width: 384px) {
 
     .hero {
-        height: clamp( 200px, 30vh, 300px );
+        height: clamp( 40vh, 60vh, 80vh );
         transition: height 0.4s ease;
     }
 
